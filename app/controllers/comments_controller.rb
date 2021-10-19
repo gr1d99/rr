@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   def index
     @article = Article.find(params[:article_id])
 
-    render  template: 'articles/show'
+    render template: 'articles/show'
   end
 
   def create

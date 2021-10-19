@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ArticlesHelper
   def present(model)
     klass = "#{model.class}Presenter".constantize

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ArticlesController < ApplicationController
   def index
     @articles = Article.all
@@ -9,7 +11,7 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    p request.variant
+    Rails.logger.debug request.variant
   end
 
   def create
@@ -38,7 +40,7 @@ class ArticlesController < ApplicationController
     if @article.update(article_params)
       redirect_to @article
     else
-      p @article.errors
+      Rails.logger.debug @article.errors
       render 'edit'
     end
   end
@@ -65,9 +67,7 @@ class ArticlesController < ApplicationController
 
       permitted.delete(:publish)
 
-      permitted
-    else
-      permitted
     end
+    permitted
   end
 end

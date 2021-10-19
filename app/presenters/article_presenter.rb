@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ArticlePresenter < BasePresenter
   def publish_date
     if published_at?
