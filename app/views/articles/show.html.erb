@@ -1,0 +1,33 @@
+<div>
+  <h1>
+    <%= @article.title %>
+  </h1>
+  <div>
+    <p>
+      <%= @article.description %>
+    </p>
+  </div>
+</div>
+<div>
+  <h2>Comments</h2>
+  <div>
+    <%= render @article.comments %>
+  </div>
+</div>
+<div>
+  <h2>Add a Comment</h2>
+  <div>
+    <%= render 'comments/form' %>
+  </div>
+</div>
+<div>
+  <p>
+    <%= link_to 'Edit', edit_article_path(@article) %>
+  </p>
+  <p>
+    <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure' } %>
+  </p>
+  <p>
+    <%= link_to 'Back', articles_path %>
+  </p>
+</div>
