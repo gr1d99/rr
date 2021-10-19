@@ -58,6 +58,16 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :description)
+    permitted = params.require(:article).permit(:title, :description, :publish)
+
+    if permitted[:publish]
+      permitted[:published_at] = DateTime.now
+
+      permitted.delete(:publish)
+
+      permitted
+    else
+      permitted
+    end
   end
 end
