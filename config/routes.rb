@@ -15,8 +15,8 @@ Rails.application.routes.draw do
 
   post "/graphql", to: "graphql#execute"
   root 'articles#index'
-  resources :articles, shallow: true, constraints: { domain: 'localhost', format: :json } do
-    resources :comments, defaults: { format: 'json' }
+  resources :articles, shallow: true do
+    resources :comments
     collection do
       get 'preview'
     end
